@@ -25,15 +25,15 @@ public class TestService {
 			connection.eval("sumVal=sum(" + vector + ")");
 			
 			// Graphique en pdf 
-			//connection.eval("pdf(file=\"/home/R/plots/histogram1.pdf\")");
-			connection.eval("pdf(file=\"C:\\Users\\Michel\\Pictures\\graphs\\histogram1.pdf\")");
+			connection.eval("pdf(file=\"/home/miguel/R/plots/histogram1.pdf\")");
+			//connection.eval("pdf(file=\"C:\\Users\\Michel\\Pictures\\graphs\\histogram1.pdf\")");
 			connection.eval("hist(airquality$Temp)");
 			connection.eval("dev.off()");
 			
 			// Méthode lignes de commande
 			connection.eval("library(\"Cairo\")");
 			connection.eval(
-					"Cairo(file=\"/home/R/plots/testfile2.jpg\",type=\"png\",bg=\"white\",units=\"px\", width=400, height=300, pointsize=12, dpi=\"auto\")");
+					"Cairo(file=\"/home/miguel/R/plots/testfile2.png\",type=\"png\",bg=\"white\",units=\"px\", width=400, height=300, pointsize=12, dpi=\"auto\")");
 			connection.eval("hist(airquality$Temp)");
 			connection.eval("dev.off()");
 			
@@ -81,7 +81,7 @@ public class TestService {
 			connection.eval("sumVal=sum(" + vector + ")");
 			
 			// Graphique en pdf
-			connection.eval("pdf(file=\"/home/R/plots/histogram1.pdf\")");
+			connection.eval("pdf(file=\"/home/miguel/R/plots/histogram1.pdf\")");
 			connection.eval("hist(airquality$Temp)");
 			connection.eval("dev.off()");
 			
@@ -104,12 +104,12 @@ public class TestService {
 			}
 			
 			// appel à une fonction issue d'un script
-			connection.eval("source(\"/home/R/utils/graph.r\")");
+			connection.eval("source(\"/home/miguel/R/utils/graph.r\")");
 			REXP is_aba_palindrome = connection.eval("palindrome(20)");
 			System.out.println("resultat script: " + is_aba_palindrome.asInteger());
 			
 			// Méthode de script - tracé de graph
-			connection.eval("source(\"/home/R/utils/graph2.r\")");
+			connection.eval("source(\"/home/miguel/R/utils/graph2.r\")");
 		
 		} catch (RserveException e) {
 			e.printStackTrace();
@@ -138,7 +138,7 @@ public class TestService {
 			connection.eval("sumVal=sum(" + vector + ")");
 			
 			// Graphique en pdf
-			connection.eval("pdf(file=\"/home/R/plots/histogram1.pdf\")");
+			connection.eval("pdf(file=\"/home/miguel/R/plots/histogram1.pdf\")");
 			connection.eval("hist(airquality$Temp)");
 			connection.eval("dev.off()");
 			
@@ -165,7 +165,7 @@ public class TestService {
 			}
 			
 			// appel à une fonction issue d'un script
-			connection.eval("source(\"/home/R/utils/graph.r\")");
+			connection.eval("source(\"/home/miguel/R/utils/graph.r\")");
 			REXP is_aba_palindrome = connection.eval("palindrome(20)");
 			System.out.println("resultat script: " + is_aba_palindrome.asInteger());
 			
