@@ -48,12 +48,12 @@ public class TestService {
 			
 			// appel à une fonction issue d'un script
 			/*
-			connection.eval("source(\"/home/R/utils/graph.r\")");
+			connection.eval("source(\"/home/miguel/R/utils/graph.r\")");
 			REXP is_aba_palindrome = connection.eval("palindrome(20)");
 			System.out.println("resultat script: " + is_aba_palindrome.asInteger());
 			*/
 			// Méthode de script - tracé de graph
-			//connection.eval("source(\"/home/R/utils/graph2.r\")");
+			//connection.eval("source(\"/home/miguel/R/utils/graph2.r\")");
 
 		} catch (RserveException e) {
 			e.printStackTrace();
@@ -109,7 +109,8 @@ public class TestService {
 			System.out.println("resultat script: " + is_aba_palindrome.asInteger());
 			
 			// Méthode de script - tracé de graph
-			connection.eval("source(\"/home/miguel/R/utils/graph2.r\")");
+			connection.eval("source(\"/home/miguel/R/utils/graph21.r\")");
+			connection.eval("graph()");
 		
 		} catch (RserveException e) {
 			e.printStackTrace();
@@ -120,7 +121,57 @@ public class TestService {
 		}
 	}
 	
+	public void activer21() {  // Tracé graphe Cairo via script R - non fonctionnel
+
+		RConnection connection = null;
+
+		try {
+			/*
+			 * Create a connection to Rserve instance running on default port 6311
+			 */
+			connection = new RConnection("127.0.0.1", 6311);
+			// connection = new RConnection("192.46.239.178", 6311);
+			
+		
+			// appel à une fonction issue d'un script
+			connection.eval("source(\"/home/miguel/R/utils/graph.r\")");
+			REXP is_aba_palindrome = connection.eval("palindrome(20)");
+			System.out.println("resultat script: " + is_aba_palindrome.asInteger());
+			
+			// Méthode de script - tracé de graph
+			connection.eval("source(\"/home/miguel/R/utils/graph21.r\")");
+			connection.eval("graph()");
+		
+		} catch (RserveException e) {
+			e.printStackTrace();
+		} catch (REXPMismatchException e) {
+			e.printStackTrace();
+		} finally {
+			connection.close();
+		}
+	}
 	
+	public void regression2() {  // Tracé graphe Cairo via script R - non fonctionnel
+
+		RConnection connection = null;
+
+	
+			/*
+			 * Create a connection to Rserve instance running on default port 6311
+			 */
+			try {
+				connection = new RConnection("127.0.0.1", 6311);
+				connection.eval("source(\"/home/miguel/R/utils/reg4.r\")");
+				connection.eval("graph()");
+	
+			} catch (RserveException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	
+		
+	}
+
 	
 	public void activer3() {  // Non fonctionnel  - Tracé graphe Cairo avec script contenu dans une string - non fonctionnel
 
@@ -237,6 +288,10 @@ public class TestService {
 			connection.voidEval("model<-lm(TxDDT~Age)");
 			try {
 				double [] coeff = connection.eval("coefficients(model)").asDoubles();
+				for(int i = 0; i<coeff.length; i++) {
+					
+					System.out.println("Coef" + i +": " + coeff[i]);
+				}
 			} catch (REXPMismatchException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -248,6 +303,29 @@ public class TestService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}
+
+
+	public void regression3() {
+		
+		RConnection connection = null;
+
+		
+		/*
+		 * Create a connection to Rserve instance running on default port 6311
+		 */
+		try {
+			connection = new RConnection("127.0.0.1", 6311);
+			connection.eval("source(\"/home/miguel/R/utils/reg2.r\")");
+			connection.eval("graph()");
+
+		} catch (RserveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 		
 	}
 

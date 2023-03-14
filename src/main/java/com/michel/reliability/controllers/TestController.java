@@ -13,6 +13,11 @@ public class TestController {
 	@Autowired
 	TestService testService;
 	
+	
+	/* Fonctionnel
+	 * Génére un graphe png et et graphe pdf dans le dossier plots
+	 * 
+	*/
 	@GetMapping("/test1")
 	public void test1() {
 		
@@ -20,17 +25,26 @@ public class TestController {
 		
 	}
 	
+	// Fonctionnel  - Tracé graphe Cairo avec script
 	@GetMapping("/test3")
 	public void test3() {
 		
-		testService.activer3();
+		testService.activer21();
 		
 	}
+	
 	
 	@GetMapping("/reg")
 	void regression() {
 		
-		testService.regression();
+		testService.regression2();
+		
+	}
+	
+	@GetMapping("/reg3")
+	void regression2() {
+		
+		testService.regression3();
 		
 	}
 	
