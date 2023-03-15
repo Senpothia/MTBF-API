@@ -26,7 +26,7 @@ public class TestService {
 			
 			// Graphique en pdf 
 			connection.eval("pdf(file=\"/home/miguel/R/plots/histogram1.pdf\")");
-			//connection.eval("pdf(file=\"C:\\Users\\Michel\\Pictures\\graphs\\histogram1.pdf\")");
+			
 			connection.eval("hist(airquality$Temp)");
 			connection.eval("dev.off()");
 			
@@ -46,14 +46,7 @@ public class TestService {
 				System.out.println(t + " = " + nm[t]);
 			}
 			
-			// appel à une fonction issue d'un script
-			/*
-			connection.eval("source(\"/home/miguel/R/utils/graph.r\")");
-			REXP is_aba_palindrome = connection.eval("palindrome(20)");
-			System.out.println("resultat script: " + is_aba_palindrome.asInteger());
-			*/
-			// Méthode de script - tracé de graph
-			//connection.eval("source(\"/home/miguel/R/utils/graph2.r\")");
+			
 
 		} catch (RserveException e) {
 			e.printStackTrace();
@@ -65,7 +58,7 @@ public class TestService {
 	}
 	
 	
-	public void activer2() {  // Tracé graphe Cairo via script R - non fonctionnel
+	public void activer2() {  // Appel à une fonction définie dans une script R - génération graphes en lignes de commandes
 
 		RConnection connection = null;
 
@@ -84,15 +77,7 @@ public class TestService {
 			connection.eval("pdf(file=\"/home/miguel/R/plots/histogram1.pdf\")");
 			connection.eval("hist(airquality$Temp)");
 			connection.eval("dev.off()");
-			
-			// Méthode ligne de commande
-			/*
-			connection.eval("library(\"Cairo\")");
-			connection.eval(
-					"Cairo(file=\"/home/R/plots/testfile2.jpg\",type=\"png\",bg=\"white\",units=\"px\", width=400, height=300, pointsize=12, dpi=\"auto\")");
-			connection.eval("hist(airquality$Temp)");
-			connection.eval("dev.off()");
-			*/
+		
 			
 			// Acquisition de résultats divers
 			double mean = connection.eval("sumVal").asDouble();
@@ -108,9 +93,7 @@ public class TestService {
 			REXP is_aba_palindrome = connection.eval("palindrome(20)");
 			System.out.println("resultat script: " + is_aba_palindrome.asInteger());
 			
-			// Méthode de script - tracé de graph
-			connection.eval("source(\"/home/miguel/R/utils/graph21.r\")");
-			connection.eval("graph()");
+			
 		
 		} catch (RserveException e) {
 			e.printStackTrace();
@@ -193,14 +176,7 @@ public class TestService {
 			connection.eval("hist(airquality$Temp)");
 			connection.eval("dev.off()");
 			
-			// Méthode ligne de commande
-			/*
-			connection.eval("library(\"Cairo\")");
-			connection.eval(
-					"Cairo(file=\"/home/R/plots/testfile2.jpg\",type=\"png\",bg=\"white\",units=\"px\", width=400, height=300, pointsize=12, dpi=\"auto\")");
-			connection.eval("hist(airquality$Temp)");
-			connection.eval("dev.off()");
-			*/
+			
 			
 			// Méthode script R sur une ligne - méthode 2
 			
@@ -220,8 +196,7 @@ public class TestService {
 			REXP is_aba_palindrome = connection.eval("palindrome(20)");
 			System.out.println("resultat script: " + is_aba_palindrome.asInteger());
 			
-			// Méthode de script - tracé de graph - non fonctionnelle
-			//connection.eval("source(\"/home/R/utils/graph2.r\")");
+			
 
 		} catch (RserveException e) {
 			e.printStackTrace();
@@ -239,11 +214,6 @@ public class TestService {
 		try {
 			connection = new RConnection("127.0.0.1", 6311);
 			
-			/*
-			connection.eval("library(\"Cairo\")");
-			connection.eval("Cairo(file=\"/home/R/plots/regression.jpg\",type=\"png\",bg=\"white\",units=\"px\", width=400, height=300, pointsize=12, dpi=\"auto\")");
-			
-			*/
 			connection.eval("Obs<-1:15");
 			connection.eval("Age<-c(2,2,2,3,3,3,4,4,4,5,5,5,6,6,6)");
 			connection.eval("TxDDT<-c(0.2,0.25,0.18,0.19,0.29,0.28,0.31,0.33,0.36,0.71,0.38,0.47,1.1,0.87,0.83)");
@@ -255,16 +225,7 @@ public class TestService {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			/*
-			connection.voidEval("segments(Age,fitted(model),Age, TxDDT)");  
-			connection.voidEval("pred.frame<-data.frame(Age=2:6)");
-			connection.voidEval("pc<-predict(model, interval=\"confidence\",newdata=pred.frame)");
-			connection.eval("model, interval=\"prediction\",newdata=pred.frame)");
-			connection.eval("matlines(pred.frame, pc[,2:3], lty=c(2,2), col=\"blue\")");
-			connection.eval("matlines(pred.frame, pp[,2:3], lty=c(3,3), col=\"red\")");
-			connection.eval("legend(\"topleft\",c(\"confiance\",\"prediction\"),lty=c(2,3), col=c(\"blue\",\"red\"))");
-			connection.eval("dev.off()");
-			*/
+			
 			
 			
 		} catch (RserveException e) {
