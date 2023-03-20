@@ -54,6 +54,18 @@ public class TestController {
 		testService.regCoefficients();
 	}
 		
+	@GetMapping("/source")
+	void printSourceCmde() {
+		
+		testService.printSource();
+	}
+	
+	@GetMapping("/reg4")
+	void regression4() {
+		
+		testService.regression4();
+		
+	}
 		
 		
 	

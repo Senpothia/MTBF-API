@@ -1,11 +1,16 @@
 package com.michel.reliability;
 
+import org.rosuda.REngine.Rserve.RConnection;
+import org.rosuda.REngine.Rserve.RserveException;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class MvcConfiguration implements WebMvcConfigurer{
+	
+
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -14,6 +19,9 @@ public class MvcConfiguration implements WebMvcConfigurer{
 		registry.addResourceHandler("/plots/**")
 		.addResourceLocations("192.46.239.178:8104/home/R/plots/");
 	}
+	
+	
+	
 	
 	
 
