@@ -17,7 +17,8 @@ public class MvcConfiguration implements WebMvcConfigurer{
 		// TODO Auto-generated method stub
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 		registry.addResourceHandler("/plots/**")
-		.addResourceLocations("192.46.239.178:8104/home/R/plots/");
+		.addResourceLocations("file:/home/miguel/R/plots/");
+	
 	}
 	
 	

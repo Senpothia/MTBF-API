@@ -15,7 +15,7 @@ public class TestService {
 
 	@Autowired
 	private Rconnector connectorToR;
-	
+
 	private RConnection connectionToR = null;
 
 	public void activer() { // Fonctionnel - tracé d'un graphe Cairo en lignes de commande
@@ -148,7 +148,7 @@ public class TestService {
 			connectionToR.eval("source(\"/home/miguel/R/utils/reg4.r\")");
 			connectionToR.eval("graph()");
 			connectorToR.closeRconnection(connectionToR);
-		
+
 		} catch (RserveException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -281,26 +281,26 @@ public class TestService {
 		}
 
 	}
-	
+
 	public void printSource() {
-		
+
 		String scriptName = "scriptTestName";
 		StringBuilder cmde = Auxiliary.getSourceDirectory(scriptName);
 		System.out.println("Commande; " + cmde);
 	}
-	
+
 	public void regression4() {
-		
+
 		try {
 			connectionToR = connectorToR.getRConnection();
 			connectorToR.provideSource("reg2.r", connectionToR);
 			connectorToR.callFunction("graph()", connectionToR);
+			connectorToR.closeRconnection(connectionToR);
 		} catch (RserveException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
 
 }

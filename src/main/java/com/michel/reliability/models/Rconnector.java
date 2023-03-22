@@ -31,27 +31,27 @@ public class Rconnector {
 
 	public void provideSource(String source, RConnection connection) {
 
-			StringBuilder commande = Auxiliary.getSourceDirectory(source);
-			System.out.println(commande.toString());
-			try {
-				connection.eval(commande.toString());
-			} catch (RserveException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
+		StringBuilder commande = Auxiliary.getSourceDirectory(source);
+		System.out.println(commande.toString());
+		try {
+			connection.eval(commande.toString());
+		} catch (RserveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
-	
+
 	public void callFunction(String functionName, RConnection connection) {
-		
-			StringBuilder commande = Auxiliary.getFunctionString(functionName);
-			System.out.println(commande.toString());
-			try {
-				connection.eval(commande.toString());
-			} catch (RserveException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
+		StringBuilder commande = Auxiliary.getFunctionString(functionName);
+		System.out.println(commande.toString());
+		try {
+			connection.eval(commande.toString());
+		} catch (RserveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
