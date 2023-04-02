@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.michel.reliability.models.Table;
 import com.michel.reliability.service.statisics.TestService;
+import com.michel.reliability.utils.DataFileManager;
 
 @RestController
 public class TestController {
@@ -67,18 +68,12 @@ public class TestController {
 
 	}
 
-	@PostMapping("/save/table")
-	void getTable(@RequestBody Table table) {
-		System.out.println("requête reçue");
-		System.out.println("titte: " + table.getTitle());
-		System.out.println("body: " + table.getBody());
-
-	}
-
+	
 	@PostMapping("/save/table2")
 	void getTable2(@RequestBody String table) {
 		System.out.println("requête reçue");
 		System.out.println("table: " + table);
+		DataFileManager.saveTable(table);
 
 	}
 

@@ -12,6 +12,7 @@ public class Constants {
 	public static final String QUOTE= "\"";
 	public static final String RESSOURCE_LOCATION= "file:/home/miguel/R/mtbf/data/";
 	public static final String RESSOURCE_FOLDER= "/data/**";
+	public static final String DATA_FOLDER= "/home/miguel/R/mtbf/data/";
 
 	
 	
