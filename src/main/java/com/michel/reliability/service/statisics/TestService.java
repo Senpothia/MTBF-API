@@ -302,5 +302,76 @@ public class TestService {
 		}
 
 	}
+	
+	public void regression31() {
+
+		try {
+			connectionToR = connectorToR.getRConnection();
+			connectorToR.provideSource("reg3.r", connectionToR);
+			connectorToR.callFunction("graph()", connectionToR);
+			connectorToR.closeRconnection(connectionToR);
+		} catch (RserveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public void hist() {
+
+		try {
+			connectionToR = connectorToR.getRConnection();
+			connectorToR.provideSource("V3ER_sc.r", connectionToR);
+			connectorToR.callFunction("histo()", connectionToR);
+			connectorToR.closeRconnection(connectionToR);
+		} catch (RserveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void quantiles() {
+
+		try {
+			connectionToR = connectorToR.getRConnection();
+			connectorToR.provideSource("V3ER_sc.r", connectionToR);
+			connectorToR.callFunction("quantiles()", connectionToR);
+			connectorToR.closeRconnection(connectionToR);
+		} catch (RserveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void density() {
+
+		try {
+			connectionToR = connectorToR.getRConnection();
+			connectorToR.provideSource("V3ER_sc.r", connectionToR);
+			connectorToR.callFunction("densite()", connectionToR);
+			connectorToR.closeRconnection(connectionToR);
+		} catch (RserveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void atypiques() {
+
+		try {
+			connectionToR = connectorToR.getRConnection();
+			connectorToR.provideSource("V3ER_sc.r", connectionToR);
+			connectorToR.callFunction("atypiques()", connectionToR);
+			connectorToR.closeRconnection(connectionToR);
+		} catch (RserveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 
 }

@@ -67,8 +67,21 @@ public class TestController {
 		testService.regression4();
 
 	}
-
 	
+	@GetMapping("/reg31")
+	void regression31() {
+
+		testService.regression31();
+
+	}
+
+	@GetMapping("/v3er/histo")
+	void regression41() {
+
+		testService.hist();
+
+	}
+
 	@PostMapping("/save/table2")
 	void getTable2(@RequestBody String table) {
 		System.out.println("requête reçue");
