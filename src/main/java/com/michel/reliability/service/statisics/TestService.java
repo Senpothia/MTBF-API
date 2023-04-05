@@ -331,6 +331,21 @@ public class TestService {
 		
 	}
 	
+	public void hist2() {
+
+		try {
+			connectionToR = connectorToR.getRConnection();
+			connectorToR.provideSource("V3ER_sc.r", connectionToR);
+			connectorToR.callFunction("histogramme(\"arg\")", connectionToR);
+			connectorToR.closeRconnection(connectionToR);
+		} catch (RserveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	public void quantiles() {
 
 		try {

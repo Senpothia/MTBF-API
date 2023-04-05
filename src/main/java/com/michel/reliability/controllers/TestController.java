@@ -82,6 +82,13 @@ public class TestController {
 
 	}
 	
+	@GetMapping("/v3er/hist2")
+	void regression411() {
+
+		testService.hist2();
+
+	}
+	
 	
 	@GetMapping("/v3er/quant")
 	void regression42() {
