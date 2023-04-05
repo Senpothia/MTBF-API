@@ -81,6 +81,31 @@ public class TestController {
 		testService.hist();
 
 	}
+	
+	
+	@GetMapping("/v3er/quant")
+	void regression42() {
+
+		testService.quantiles();
+
+	}
+	
+	@GetMapping("/v3er/density")
+	void regression43() {
+
+		testService.density();
+
+	}
+	
+	
+	@GetMapping("/v3er/atypiques")
+	void regression44() {
+
+		testService.atypiques();
+
+	}
+	
+	
 
 	@PostMapping("/save/table2")
 	void getTable2(@RequestBody String table) {
